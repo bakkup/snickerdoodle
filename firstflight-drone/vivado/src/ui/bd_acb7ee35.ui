@@ -1,0 +1,73 @@
+{
+   ExpandedHierarchyInLayout: "",
+   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
+#  -string -flagsOSRD
+preplace port async_in2 -pg 1 -y 190 -defaultsOSRD
+preplace port s00_axi_aresetn -pg 1 -y 820 -defaultsOSRD
+preplace port async_in -pg 1 -y 170 -defaultsOSRD
+preplace port S00_AXI -pg 1 -y 760 -defaultsOSRD
+preplace port zero -pg 1 -y 1050 -defaultsOSRD
+preplace port clk_out1 -pg 1 -y 620 -defaultsOSRD
+preplace port S00_AXI1 -pg 1 -y 910 -defaultsOSRD
+preplace port pwm_out -pg 1 -y 780 -defaultsOSRD
+preplace port axis_enable -pg 1 -y 250 -defaultsOSRD
+preplace port s00_axi_aclk -pg 1 -y 800 -defaultsOSRD
+preplace port clkb -pg 1 -y 50 -defaultsOSRD
+preplace port video_out -pg 1 -y 370 -defaultsOSRD
+preplace port M00_AXI -pg 1 -y 930 -defaultsOSRD
+preplace portBus Op1 -pg 1 -y 290 -defaultsOSRD
+preplace portBus frame_num -pg 1 -y 780 -defaultsOSRD
+preplace portBus async_in1 -pg 1 -y 270 -defaultsOSRD
+preplace inst dvp_to_buffer_bb_0 -pg 1 -lvl 2 -y 160 -defaultsOSRD
+preplace inst constant_1_0 -pg 1 -lvl 5 -y 430 -defaultsOSRD
+preplace inst buffer_to_matrix_bb_0 -pg 1 -lvl 4 -y 450 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 6 -y 930 -defaultsOSRD
+preplace inst cam_axi_0 -pg 1 -lvl 5 -y 790 -defaultsOSRD
+preplace inst line_buffers -pg 1 -lvl 3 -y 130 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 1 -y 110 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 5 -y 580 -defaultsOSRD
+preplace inst constant_0_0 -pg 1 -lvl 6 -y 1050 -defaultsOSRD
+preplace inst v_vid_in_axi4s_0 -pg 1 -lvl 6 -y 410 -defaultsOSRD
+preplace inst pwm_module_0 -pg 1 -lvl 6 -y 770 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 6 -y 620 -defaultsOSRD
+preplace netloc Conn1 1 6 1 NJ
+preplace netloc Conn2 1 0 6 NJ 910 NJ 910 NJ 910 NJ 910 NJ 910 NJ
+preplace netloc dvp_to_buffer_bb_0_we0 1 2 1 560
+preplace netloc pwm_module_0_o_pwm 1 6 1 NJ
+preplace netloc buffer_to_matrix_bb_0_b 1 4 1 N
+preplace netloc buffer_to_matrix_bb_0_vsync_out 1 4 2 1190 370 NJ
+preplace netloc dvp_to_buffer_bb_0_we1 1 2 1 N
+preplace netloc dvp_to_buffer_bb_0_we2 1 2 1 N
+preplace netloc axi_smc_M00_AXI 1 6 1 NJ
+preplace netloc buffer_to_matrix_bb_0_x_address 1 2 3 600 250 NJ 250 1170
+preplace netloc buffer_to_matrix_bb_0_href_out 1 4 2 N 330 NJ
+preplace netloc dvp_to_buffer_bb_0_we3 1 2 1 N
+preplace netloc constant_0_0_zero 1 6 1 NJ
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 20 270 NJ 270 NJ 270 NJ 270 NJ 270 1460
+preplace netloc util_vector_logic_0_Res 1 1 5 320 280 NJ 280 870 260 NJ 260 1480
+preplace netloc buffer_to_matrix_bb_0_r 1 4 1 1190
+preplace netloc ps7_0_axi_periph_M01_AXI 1 0 5 NJ 760 NJ 760 NJ 760 NJ 760 NJ
+preplace netloc async_in1_1 1 0 3 10J 40 NJ 40 570J
+preplace netloc cam_href_1 1 0 2 NJ 190 NJ
+preplace netloc cam_axi_0_period 1 5 1 N
+preplace netloc buffer_to_matrix_bb_0_g 1 4 1 1180
+preplace netloc cam_pclk_1 1 0 6 NJ 50 330 60 580 260 860 240 NJ 240 1500
+preplace netloc xlconcat_0_dout 1 5 1 1490
+preplace netloc cam_axi_0_duty 1 5 1 N
+preplace netloc buffer_to_matrix_bb_0_gray 1 4 1 1170
+preplace netloc clk_wiz_0_clk_out1 1 6 1 NJ
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 0 6 NJ 820 NJ 820 NJ 820 NJ 820 1190 700 1460J
+preplace netloc frame_num_1 1 0 5 NJ 780 NJ 780 NJ 780 NJ 780 NJ
+preplace netloc cam_vsync_1 1 0 4 NJ 170 330 260 560J 510 NJ
+preplace netloc dvp_to_buffer_bb_0_x_address 1 2 1 590
+preplace netloc constant_1_0_one 1 5 2 1470 250 NJ
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 NJ 800 NJ 800 NJ 800 NJ 800 1170 690 1500
+preplace netloc line_buffers_doutb1 1 3 1 840
+preplace netloc line_buffers_doutb 1 3 1 850
+preplace netloc line_buffers_doutb2 1 3 1 830
+preplace netloc cam_axi_0_enable 1 5 1 N
+preplace netloc line_buffers_doutb3 1 3 1 820
+levelinfo -pg 1 -10 170 450 710 1020 1330 1650 1810 -top 0 -bot 1110
+",
+}
+
