@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="battery">
+    <file>battery.png</file>
+  </qresource>
+  <qresource prefix="propeller">
+    <file>propeller.png</file>
+  </qresource>
+  <qresource prefix="stopwatch">
+    <file>stopwatch.png</file>
+  </qresource>
+</RCC>
