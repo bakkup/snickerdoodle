@@ -3,7 +3,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from mainWindow import Ui_MainWindow
 from diagnostics import Ui_widget_diagnostics
-from adc import *
+from adc import ReadADC
 
 class MainWindow(QMainWindow):
   def __init__(self):
@@ -33,8 +33,8 @@ class MainWindow(QMainWindow):
     self.timer.start(1000)
 
   def tick(self):
-    self.busVoltage = ReadADC()
-    # self.diagnostics.
+    busVoltage = ReadADC()
+    self.diagnostics.label_busVoltVal.setText(busVoltage)
 
 def main():
   app = QApplication(sys.argv)

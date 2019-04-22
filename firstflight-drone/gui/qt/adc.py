@@ -7,7 +7,7 @@ import struct
 def ReadADC():
   try:
     f = open("/dev/mem", "r+b")
-    mem = mmap.mmap(self.f.fileno(), 100, offset=0xfffc2000)
+    mem = mmap.mmap(f.fileno(), 100, offset=0xfffc2000)
 
     mem.seek(0)
     fromMem = struct.unpack('f', mem.read(4))[0]
@@ -25,5 +25,3 @@ def ReadADC():
     print "Error in reading memory"
 
   return result
-
-
