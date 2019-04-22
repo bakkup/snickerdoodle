@@ -20,6 +20,7 @@ class cam(object):
 
   def getFrame(self,type):
     result = self.lib.getFrame(ctypes.c_void_p(self.frame.ctypes.data))
+	void_p(self.frame.ctypes.data))
     if (type == 0):  # rgb
       tempImage = np.ascontiguousarray(self.frame[:,:,0:3], dtype=np.uint8)
       return tempImage
@@ -138,10 +139,16 @@ class cam(object):
           cv2.circle(clone_img, center, 5, (0, 0, 255), -1)
           #print "x is: " + str(x) + " y is: " + str(y)
 
+          z = 255 - radius #defines z as a value that equals zero at the lens of the camera...?
+
+          #Writes values of target to dev/mem (might need to happen after calculating radian adjustments)
           self.memCam.seek(0)
           self.memCam.write(struct.pack('i', int(x)))
           self.memCam.seek(4)
           self.memCam.write(struct.pack('i', int(y)))
+          self.memCam.seek(8)
+          self.memCam.write(struct.pack('i', int(z)))
+		  print "x is: " + str(x) + "y is: " + str(y) + "z is: " + str(z) #debugging printout
 
       ret, jpeg = cv2.imencode('.jpg', clone_img)
 
