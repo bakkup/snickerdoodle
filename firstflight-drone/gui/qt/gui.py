@@ -12,6 +12,7 @@ class MainWindow(QMainWindow):
     self.ui.setupUi(self)
     self.instantiateWidgets()
     self.initDocks()
+    self.timerSetup()
     self.show()
 
   def instantiateWidgets(self):
