@@ -20,7 +20,6 @@ class cam(object):
 
   def getFrame(self,type):
     result = self.lib.getFrame(ctypes.c_void_p(self.frame.ctypes.data))
-	void_p(self.frame.ctypes.data))
     if (type == 0):  # rgb
       tempImage = np.ascontiguousarray(self.frame[:,:,0:3], dtype=np.uint8)
       return tempImage
@@ -148,7 +147,7 @@ class cam(object):
           self.memCam.write(struct.pack('i', int(y)))
           self.memCam.seek(8)
           self.memCam.write(struct.pack('i', int(z)))
-		  print "x is: " + str(x) + "y is: " + str(y) + "z is: " + str(z) #debugging printout
+          print "x is: " + str(x) + "y is: " + str(y) + "z is: " + str(z) #debugging printout
 
       ret, jpeg = cv2.imencode('.jpg', clone_img)
 
