@@ -35,7 +35,7 @@ class MainWindow(QMainWindow):
 
   def tick(self):
     busVoltage = ReadADC()
-    self.diagnostics.label_busVoltVal.setText(busVoltage)
+    self.diagnostics.label_busVoltVal.setText((str(busVoltage)))
 
 def main():
   app = QApplication(sys.argv)
