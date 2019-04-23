@@ -4,6 +4,7 @@ from PyQt4.QtGui import *
 from mainWindow import Ui_MainWindow
 from diagnostics import Ui_widget_diagnostics
 from adc import ReadADC
+from attitude import ReadRoll, ReadPitch, ReadYaw
 
 class MainWindow(QMainWindow):
   def __init__(self):
@@ -35,7 +36,13 @@ class MainWindow(QMainWindow):
 
   def tick(self):
     busVoltage = ReadADC()
-    self.diagnostics.label_busVoltVal.setText((str(busVoltage)))
+    self.diagnostics.label_busVoltVal.setText(str(busVoltage))
+    roll = ReadRoll()
+    self.diagnostics.label_rollVal.setText(str(roll))
+    pitch = ReadPitch()
+    self.diagnostics.label_rollVal.setText(str(pitch))
+    yaw = ReadYaw()
+    self.diagnostics.label_rollVal.setText(str(yaw))
 
 def main():
   app = QApplication(sys.argv)
