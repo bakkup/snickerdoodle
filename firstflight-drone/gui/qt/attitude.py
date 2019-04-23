@@ -49,3 +49,25 @@ def ReadPitch():
     print "Error in reading memory (attitude.ReadPitch)"
 
   return result
+
+# Change to Z acceleration if getting yaw is not possible
+def ReadYaw():
+  try:
+    f = open("/dev/mem", "r+b")
+    mem = mmap.mmap(f.fileno(), 100, offset=IMU_ADDRESS)
+
+    mem.seek(8)
+    # imuAccelZ = 'Z Accel: ' + str(round((struct.unpack('h', mem.read(2))[0] / -1670.70),2)) + ' m/sec^2'
+    fromMem = struct.unpack('h', mem.read(2))[0]
+    # print "Yaw" + " = " + str(fromMem)
+
+    # Close mem after finishing
+    mem.close()
+    f.close()
+
+    result = fromMem
+  except:
+    result = 0
+    print "Error in reading memory (attitude.ReadYaw)"
+
+  return result
