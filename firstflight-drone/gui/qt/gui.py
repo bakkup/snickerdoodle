@@ -40,9 +40,9 @@ class MainWindow(QMainWindow):
     roll = ReadRoll()
     self.diagnostics.label_rollVal.setText(str(roll))
     pitch = ReadPitch()
-    self.diagnostics.label_rollVal.setText(str(pitch))
+    self.diagnostics.label_pitchVal.setText(str(pitch))
     yaw = ReadYaw()
-    self.diagnostics.label_rollVal.setText(str(yaw))
+    self.diagnostics.label_yawVal.setText(str(yaw))
 
 def main():
   app = QApplication(sys.argv)
