@@ -13,8 +13,8 @@ def ReadRoll():
     mem = mmap.mmap(f.fileno(), 100, offset=IMU_ADDRESS)
 
     mem.seek(0)
-    # imuAccelX = 'X Accel: ' + str(round((struct.unpack('h', mem.read(2))[0] / 1670.70),2)) + ' m/sec^2'
-    fromMem = struct.unpack('h', mem.read(2))[0]
+    fromMem = str(round((struct.unpack('h', mem.read(2))[0] / 1670.70),2)) + ' m/sec^2'
+    # fromMem = struct.unpack('h', mem.read(2))[0]
     # print "Roll" + " = " + str(fromMem)
 
     # Close mem after finishing
@@ -35,8 +35,8 @@ def ReadPitch():
     mem = mmap.mmap(f.fileno(), 100, offset=IMU_ADDRESS)
 
     mem.seek(4)
-    # imuAccelY = 'Y Accel: ' + str(round((struct.unpack('h', mem.read(2))[0] / -1670.70),2)) + ' m/sec^2'
-    fromMem = struct.unpack('h', mem.read(2))[0]
+    fromMem = str(round((struct.unpack('h', mem.read(2))[0] / -1670.70),2)) + ' m/sec^2'
+    # fromMem = struct.unpack('h', mem.read(2))[0]
     # print "Pitch" + " = " + str(fromMem)
 
     # Close mem after finishing
@@ -57,8 +57,8 @@ def ReadYaw():
     mem = mmap.mmap(f.fileno(), 100, offset=IMU_ADDRESS)
 
     mem.seek(8)
-    # imuAccelZ = 'Z Accel: ' + str(round((struct.unpack('h', mem.read(2))[0] / -1670.70),2)) + ' m/sec^2'
-    fromMem = struct.unpack('h', mem.read(2))[0]
+    fromMem = str(round((struct.unpack('h', mem.read(2))[0] / -1670.70),2)) + ' m/sec^2'
+    # fromMem = struct.unpack('h', mem.read(2))[0]
     # print "Yaw" + " = " + str(fromMem)
 
     # Close mem after finishing
