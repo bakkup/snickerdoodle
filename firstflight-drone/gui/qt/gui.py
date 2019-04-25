@@ -41,16 +41,16 @@ class MainWindow(QMainWindow):
 
   def updatePWM(self):
     motor1_duty = ReadPWM(1)
-    self.diagnostics.label_motor1Val.setText(str(motor1_duty))
+    self.diagnostics.label_motor1Val.setText(str(motor1_duty) + '%')
 
     motor2_duty = ReadPWM(2)
-    self.diagnostics.label_motor2Val.setText(str(motor2_duty))
+    self.diagnostics.label_motor2Val.setText(str(motor2_duty)+ '%')
 
     motor3_duty = ReadPWM(3)
-    self.diagnostics.label_motor3Val.setText(str(motor3_duty))
+    self.diagnostics.label_motor3Val.setText(str(motor3_duty)+ '%')
 
     motor4_duty = ReadPWM(4)
-    self.diagnostics.label_motor4Val.setText(str(motor4_duty))
+    self.diagnostics.label_motor4Val.setText(str(motor4_duty)+ '%')
 
     motor_armed = ReadPWM(5)
     if (motor_armed == 0):

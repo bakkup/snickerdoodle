@@ -32,7 +32,7 @@ def ReadPWM(whichPort):
 
     # Convert to percentage when reading ESC value
     if (whichPort == 1 or whichPort == 2 or whichPort == 3 or whichPort == 4):
-      fromMem = int((float(fromMem)/float(102040))*100)
+      fromMem = int((float(fromMem)/float(2000))*100)
 
     # print str(reg) + " = " + str(fromMem)
 
