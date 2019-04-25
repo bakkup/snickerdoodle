@@ -4,7 +4,7 @@ import time
 import mmap
 import struct
 
-PWM_ADDRESS = 0x43c10000
+PWM_ADDRESS = 0x43c00000
 
 def ReadPWM(whichPort):
   try:
@@ -30,7 +30,7 @@ def ReadPWM(whichPort):
     mem.seek(reg)
     fromMem = struct.unpack('l', mem.read(4))[0]
 
-    # Convert to percentage is reading motor
+    # Convert to percentage when reading ESC value
     if (whichPort == 1 or whichPort == 2 or whichPort == 3 or whichPort == 4):
       fromMem = int((float(fromMem)/float(102040))*100)
 
