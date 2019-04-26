@@ -60,6 +60,10 @@ class MainWindow(QMainWindow):
     motor_armed = ReadPWM(5)
     if (motor_armed == 0):
       self.diagnostics.label_arm.setText("Disarmed")
+      self.diagnostics.label_motor1Val.setText("0%")
+      self.diagnostics.label_motor2Val.setText("0%")
+      self.diagnostics.label_motor3Val.setText("0%")
+      self.diagnostics.label_motor4Val.setText("0%")  
     else:
       self.diagnostics.label_arm.setText("Armed")
       
