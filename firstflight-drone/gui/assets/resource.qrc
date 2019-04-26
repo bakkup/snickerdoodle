@@ -2,6 +2,9 @@
   <qresource prefix="battery">
     <file>battery.png</file>
   </qresource>
+  <qresource prefix="bakkup">
+    <file>bakkup-logo.png</file>
+  </qresource>
   <qresource prefix="propeller">
     <file>propeller.png</file>
   </qresource>

@@ -30,7 +30,7 @@ class MainWindow(QMainWindow):
     self.diagnosticsDock.setAllowedAreas(Qt.RightDockWidgetArea)
     self.diagnosticsDock.setAllowedAreas(Qt.TopDockWidgetArea)
     self.diagnosticsDock.setAllowedAreas(Qt.BottomDockWidgetArea)
-    self.diagnosticsDock.setMinimumSize(370, 670)
+    self.diagnosticsDock.setMinimumSize(370, 770)
     self.diagnostics.setupUi(self.diagnosticsDock)
     self.addDockWidget(Qt.TopDockWidgetArea, self.diagnosticsDock)
 
