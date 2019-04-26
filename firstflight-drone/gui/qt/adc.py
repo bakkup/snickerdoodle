@@ -12,7 +12,7 @@ def ReadADC():
     mem.seek(0)
     fromMem = struct.unpack('f', mem.read(4))[0]
     
-    busVoltage = str(round(fromMem,2)) + ' V'
+    busVoltage = str(round(fromMem,2))
     # print str(reg) + " = " + str(fromMem)
 
     # Close mem after finishing

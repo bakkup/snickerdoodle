@@ -7,6 +7,7 @@ from adc import ReadADC
 from pwm import ReadPWM
 from attitude import ReadRoll, ReadPitch, ReadYaw
 from receiver import ReadReceiver
+import numpy as np
 
 class MainWindow(QMainWindow):
   def __init__(self):
@@ -44,9 +45,15 @@ class MainWindow(QMainWindow):
     self.updateAttitude()
     self.updateReceiver()
 
+  def runningMeanFast(self, x, N):
+    return np.convolve(x, np.ones((N,))/N)[(N-1):]
+
   def updateBusVoltage(self):
     busVoltage = ReadADC()
-    self.diagnostics.label_busVoltVal.setText(str(busVoltage))
+    self.diagnostics.label_busVoltVal.setText(str(busVoltage) + ' V')
+    # battery = self.runningMeanFast(float(busVoltage), 5)
+    batteryPercentage = ((float(busVoltage)-6.6)/1.7) * 100.0
+    self.diagnostics.label_batteryVal.setText(str(int(batteryPercentage)) + '%')
 
   def updatePWM(self):
     motor1_duty = ReadPWM(1)
