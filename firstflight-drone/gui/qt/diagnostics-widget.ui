@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>302</width>
-    <height>520</height>
+    <height>620</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
     <width>302</width>
-    <height>520</height>
+    <height>620</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -108,8 +108,8 @@
   <widget class="QGroupBox" name="groupBox_attitude">
    <property name="geometry">
     <rect>
-     <x>9</x>
-     <y>130</y>
+     <x>10</x>
+     <y>150</y>
      <width>282</width>
      <height>101</height>
     </rect>
@@ -122,7 +122,7 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>231</width>
+      <width>261</width>
       <height>31</height>
      </rect>
     </property>
@@ -130,21 +130,21 @@
      <item>
       <widget class="QLabel" name="label_roll">
        <property name="text">
-        <string>Roll</string>
+        <string>X-acceleration</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_pitch">
        <property name="text">
-        <string>Pitch</string>
+        <string>Y-acceleration</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_yaw">
        <property name="text">
-        <string>Yaw</string>
+        <string>Z-acceleration</string>
        </property>
       </widget>
      </item>
@@ -155,7 +155,7 @@
      <rect>
       <x>10</x>
       <y>60</y>
-      <width>231</width>
+      <width>261</width>
       <height>31</height>
      </rect>
     </property>
@@ -188,7 +188,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>230</y>
+     <y>270</y>
      <width>282</width>
      <height>164</height>
     </rect>
@@ -201,7 +201,7 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>121</width>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -355,52 +355,116 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_6">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <item>
+      <widget class="QLabel" name="label_ch1armVal">
+       <property name="text">
+        <string>TBD</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <zorder>verticalLayoutWidget_6</zorder>
+   <zorder>horizontalLayoutWidget</zorder>
+   <zorder>horizontalLayoutWidget_4</zorder>
+   <zorder>horizontalLayoutWidget_6</zorder>
+   <zorder>horizontalLayoutWidget_6</zorder>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>390</y>
-     <width>282</width>
-     <height>131</height>
+     <y>460</y>
+     <width>281</width>
+     <height>141</height>
     </rect>
    </property>
    <property name="title">
-    <string>Flight Time</string>
+    <string>Drone Configurations</string>
    </property>
-   <widget class="QWidget" name="verticalLayoutWidget_3">
+   <widget class="QWidget" name="horizontalLayoutWidget_5">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>30</y>
-      <width>81</width>
-      <height>80</height>
+      <y>20</y>
+      <width>185</width>
+      <height>31</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
-      <widget class="QLabel" name="label_time">
-       <property name="maximumSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
+      <widget class="QLabel" name="label_IMUcal">
        <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../assets/stopwatch.png</pixmap>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
+        <string>IMU Calibration:</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_timeVal">
+      <widget class="QLabel" name="label_IMUcalVal">
        <property name="text">
-        <string>TBD min</string>
+        <string>TBD</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>261</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_7">
+     <item>
+      <widget class="QLabel" name="label_mode">
+       <property name="text">
+        <string>Manual/Autonomous:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_modeVal">
+       <property name="text">
+        <string>TBD</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_8">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>261</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_8">
+     <item>
+      <widget class="QLabel" name="label_autoMode">
+       <property name="text">
+        <string>Autonomous Mode:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_autoModeVal">
+       <property name="text">
+        <string>TBD</string>
        </property>
       </widget>
      </item>
