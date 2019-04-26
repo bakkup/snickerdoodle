@@ -6,6 +6,7 @@ from diagnostics import Ui_widget_diagnostics
 from adc import ReadADC
 from pwm import ReadPWM
 from attitude import ReadRoll, ReadPitch, ReadYaw
+from receiver import ReadReceiver
 
 class MainWindow(QMainWindow):
   def __init__(self):
@@ -26,9 +27,11 @@ class MainWindow(QMainWindow):
     self.diagnosticsDock.setFeatures(QDockWidget.DockWidgetMovable)
     self.diagnosticsDock.setAllowedAreas(Qt.LeftDockWidgetArea)
     self.diagnosticsDock.setAllowedAreas(Qt.RightDockWidgetArea)
-    self.diagnosticsDock.setMinimumSize(302, 0)
+    self.diagnosticsDock.setAllowedAreas(Qt.TopDockWidgetArea)
+    self.diagnosticsDock.setAllowedAreas(Qt.BottomDockWidgetArea)
+    self.diagnosticsDock.setMinimumSize(370, 670)
     self.diagnostics.setupUi(self.diagnosticsDock)
-    self.addDockWidget(Qt.LeftDockWidgetArea, self.diagnosticsDock)
+    self.addDockWidget(Qt.TopDockWidgetArea, self.diagnosticsDock)
 
   def timerSetup(self):
     self.timer = QTimer()
@@ -39,6 +42,7 @@ class MainWindow(QMainWindow):
     self.updateBusVoltage()
     self.updatePWM()
     self.updateAttitude()
+    self.updateReceiver()
 
   def updateBusVoltage(self):
     busVoltage = ReadADC()
@@ -59,13 +63,13 @@ class MainWindow(QMainWindow):
 
     motor_armed = ReadPWM(5)
     if (motor_armed == 0):
-      self.diagnostics.label_arm.setText("Disarmed")
+      self.diagnostics.label_arm.setText("Disabled")
       self.diagnostics.label_motor1Val.setText("0%")
       self.diagnostics.label_motor2Val.setText("0%")
       self.diagnostics.label_motor3Val.setText("0%")
       self.diagnostics.label_motor4Val.setText("0%")  
     else:
-      self.diagnostics.label_arm.setText("Armed")
+      self.diagnostics.label_arm.setText("Enabled")
       
   def updateAttitude(self):
     roll = ReadRoll()
@@ -74,6 +78,43 @@ class MainWindow(QMainWindow):
     self.diagnostics.label_pitchVal.setText(str(pitch))
     yaw = ReadYaw()
     self.diagnostics.label_yawVal.setText(str(yaw))
+    
+  def updateReceiver(self):
+    # reg 0:  CH1 Arm
+    # reg 4:  CH2 Pitch
+    # reg 8:  CH3 Roll
+    # reg 12: CH4 Throttle
+    # reg 16: CH5 IMU calibration
+    # reg 20: CH6 Yaw
+    # reg 24: CH7 Enable
+    # reg 28: CH8 Manual/autonomous
+    # reg 32: CH9 Autonomous mode
+    
+    armdisarm = ReadReceiver(0)
+    if (armdisarm == 1):
+      self.diagnostics.label_ch1armVal.setText("Disarmed")
+    else:
+      self.diagnostics.label_ch1armVal.setText("Armed")
+      
+    IMUcal = ReadReceiver(16)
+    if (IMUcal == 342):
+      self.diagnostics.label_IMUcalVal.setText("Flight")
+    else:
+      self.diagnostics.label_IMUcalVal.setText("Set calibration")
+      
+    manualAutomode = ReadReceiver(28)
+    if (manualAutomode == 342):
+      self.diagnostics.label_modeVal.setText("Autonomous")
+    else:
+      self.diagnostics.label_modeVal.setText("Manual")
+      
+    autonomousMode = ReadReceiver(32)
+    if (autonomousMode == 342):
+      self.diagnostics.label_autoModeVal.setText("Navigation")
+    elif (autonomousMode == 1024):
+      self.diagnostics.label_autoModeVal.setText("Basic")
+    elif (autonomousMode == 1706):
+      self.diagnostics.label_autoModeVal.setText("Advanced")
 
 def main():
   app = QApplication(sys.argv)

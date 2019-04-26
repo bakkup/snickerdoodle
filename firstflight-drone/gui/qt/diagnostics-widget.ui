@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>302</width>
-    <height>620</height>
+    <width>350</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
-    <width>302</width>
-    <height>620</height>
+    <width>370</width>
+    <height>700</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -27,7 +27,7 @@
     <rect>
      <x>8</x>
      <y>19</y>
-     <width>282</width>
+     <width>331</width>
      <height>111</height>
     </rect>
    </property>
@@ -110,41 +110,41 @@
     <rect>
      <x>10</x>
      <y>150</y>
-     <width>282</width>
-     <height>101</height>
+     <width>331</width>
+     <height>121</height>
     </rect>
    </property>
    <property name="title">
-    <string>Attitude</string>
+    <string>Attitude (m/sec^2)</string>
    </property>
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>261</width>
-      <height>31</height>
+      <width>311</width>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLabel" name="label_roll">
        <property name="text">
-        <string>X-acceleration</string>
+        <string>X-accel</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_pitch">
        <property name="text">
-        <string>Y-acceleration</string>
+        <string>Y-accel</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_yaw">
        <property name="text">
-        <string>Z-acceleration</string>
+        <string>Z-accel</string>
        </property>
       </widget>
      </item>
@@ -154,9 +154,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
-      <width>261</width>
-      <height>31</height>
+      <y>70</y>
+      <width>311</width>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -188,9 +188,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>270</y>
-     <width>282</width>
-     <height>164</height>
+     <y>290</y>
+     <width>331</width>
+     <height>181</height>
     </rect>
    </property>
    <property name="title">
@@ -201,8 +201,8 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>101</width>
-      <height>31</height>
+      <width>111</width>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -219,9 +219,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
+      <y>73</y>
       <width>241</width>
-      <height>34</height>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -319,9 +319,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>110</y>
+      <y>130</y>
       <width>241</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -360,8 +360,8 @@
      <rect>
       <x>130</x>
       <y>20</y>
-      <width>121</width>
-      <height>31</height>
+      <width>131</width>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -374,19 +374,14 @@
      </item>
     </layout>
    </widget>
-   <zorder>verticalLayoutWidget_6</zorder>
-   <zorder>horizontalLayoutWidget</zorder>
-   <zorder>horizontalLayoutWidget_4</zorder>
-   <zorder>horizontalLayoutWidget_6</zorder>
-   <zorder>horizontalLayoutWidget_6</zorder>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>460</y>
-     <width>281</width>
-     <height>141</height>
+     <y>490</y>
+     <width>331</width>
+     <height>201</height>
     </rect>
    </property>
    <property name="title">
@@ -397,8 +392,8 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>185</width>
-      <height>31</height>
+      <width>311</width>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -422,9 +417,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
-      <width>261</width>
-      <height>31</height>
+      <y>80</y>
+      <width>311</width>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -448,9 +443,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>100</y>
-      <width>261</width>
-      <height>31</height>
+      <y>140</y>
+      <width>311</width>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_8">
