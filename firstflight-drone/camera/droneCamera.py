@@ -17,6 +17,7 @@ class cam(object):
     self.memCam = mmap.mmap(self.f.fileno(), 100, offset=0xfffc1000)
     self.memADC = mmap.mmap(self.f.fileno(), 100, offset=0xfffc2000)
     self.memIMU = mmap.mmap(self.f.fileno(), 100, offset=0x43c20000)
+    self.memOrangeLED = mmap.mmap(self.f.fileno(), 100, offset=0x43C40000)
 
   def getFrame(self,type):
     result = self.lib.getFrame(ctypes.c_void_p(self.frame.ctypes.data))
@@ -73,6 +74,13 @@ class cam(object):
           self.memCam.write(struct.pack('i', int(x)))
           self.memCam.seek(4)
           self.memCam.write(struct.pack('i', int(y)))
+          
+          self.memOrangeLED.seek(0)
+          self.memOrangeLED.write(struct.pack('i', 1))
+          self.memOrangeLED.seek(4)
+          self.memOrangeLED.write(struct.pack('i', 50000000))
+          self.memOrangeLED.seek(8)
+          self.memOrangeLED.write(struct.pack('i', 50000000))
 
       ret, jpeg = cv2.imencode('.jpg', clone_img)
       return jpeg.tobytes()

@@ -5,6 +5,7 @@ from mainWindow import Ui_MainWindow
 from diagnostics import Ui_widget_diagnostics
 from adc import ReadADC
 from pwm import ReadPWM
+from attitude import ReadRoll, ReadPitch, ReadYaw
 
 class MainWindow(QMainWindow):
   def __init__(self):
@@ -38,6 +39,7 @@ class MainWindow(QMainWindow):
     busVoltage = ReadADC()
     self.diagnostics.label_busVoltVal.setText(busVoltage)
     self.updatePWM()
+    self.updateAttitude()
 
   def updatePWM(self):
     motor1_duty = ReadPWM(1)
@@ -57,6 +59,15 @@ class MainWindow(QMainWindow):
       self.diagnostics.label_arm.setText("Disarmed")
     else:
       self.diagnostics.label_arm.setText("Armed")
+      
+  def updateAttitude(self):
+    self.diagnostics.label_busVoltVal.setText(str(busVoltage))
+    roll = ReadRoll()
+    self.diagnostics.label_rollVal.setText(str(roll))
+    pitch = ReadPitch()
+    self.diagnostics.label_pitchVal.setText(str(pitch))
+    yaw = ReadYaw()
+    self.diagnostics.label_yawVal.setText(str(yaw))
 
 def main():
   app = QApplication(sys.argv)

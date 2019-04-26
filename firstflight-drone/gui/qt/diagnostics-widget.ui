@@ -40,25 +40,12 @@
    <property name="checkable">
     <bool>false</bool>
    </property>
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>30</y>
-      <width>16</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>71</width>
+      <width>101</width>
       <height>61</height>
      </rect>
     </property>
@@ -94,9 +81,9 @@
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>140</x>
       <y>30</y>
-      <width>81</width>
+      <width>121</width>
       <height>61</height>
      </rect>
     </property>
