@@ -48,6 +48,10 @@ class MainWindow(QMainWindow):
     busVoltage = ReadADC()
     self.diagnostics.label_busVoltVal.setText(str(busVoltage) + ' V')
     batteryPercentage = ((float(busVoltage)-6.6)/1.7) * 100.0
+    if (batteryPercentage > 100.0):
+      batteryPercentage = 100.0
+    elif (batteryPercentage < 0.0):
+      batteryPercentage = 0.0
     self.diagnostics.label_batteryVal.setText(str(int(batteryPercentage)) + '%')
 
   def updatePWM(self):
