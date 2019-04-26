@@ -33,7 +33,7 @@ class MainWindow(QMainWindow):
   def timerSetup(self):
     self.timer = QTimer()
     self.timer.timeout.connect(self.tick)
-    self.timer.start(1000)
+    self.timer.start(500)
 
   def tick(self):
     self.updateBusVoltage()
