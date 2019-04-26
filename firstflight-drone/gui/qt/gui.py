@@ -36,10 +36,13 @@ class MainWindow(QMainWindow):
     self.timer.start(1000)
 
   def tick(self):
-    busVoltage = ReadADC()
-    self.diagnostics.label_busVoltVal.setText(busVoltage)
+    self.updateBusVoltage()
     self.updatePWM()
     self.updateAttitude()
+
+  def updateBusVoltage(self):
+    busVoltage = ReadADC()
+    self.diagnostics.label_busVoltVal.setText(str(busVoltage))
 
   def updatePWM(self):
     motor1_duty = ReadPWM(1)
@@ -61,7 +64,6 @@ class MainWindow(QMainWindow):
       self.diagnostics.label_arm.setText("Armed")
       
   def updateAttitude(self):
-    self.diagnostics.label_busVoltVal.setText(str(busVoltage))
     roll = ReadRoll()
     self.diagnostics.label_rollVal.setText(str(roll))
     pitch = ReadPitch()
