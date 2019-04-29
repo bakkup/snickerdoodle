@@ -2,77 +2,98 @@
    ExpandedHierarchyInLayout: "",
    guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
 #  -string -flagsOSRD
-preplace port cam_trigger -pg 1 -y 260 -defaultsOSRD
-preplace port DDR -pg 1 -y 100 -defaultsOSRD
-preplace port cam_pclk -pg 1 -y 140 -defaultsOSRD
-preplace port i2c_mpu -pg 1 -y 680 -defaultsOSRD
-preplace port cam_rst -pg 1 -y 20 -defaultsOSRD
-preplace port cam_href -pg 1 -y 200 -defaultsOSRD
-preplace port cam_xclk -pg 1 -y 300 -defaultsOSRD
-preplace port pwm1 -pg 1 -y 500 -defaultsOSRD
-preplace port led1 -pg 1 -y 280 -defaultsOSRD
-preplace port receiver -pg 1 -y 820 -defaultsOSRD
-preplace port pwm2 -pg 1 -y 520 -defaultsOSRD
-preplace port led2 -pg 1 -y 40 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 120 -defaultsOSRD
-preplace port pwm3 -pg 1 -y 540 -defaultsOSRD
-preplace port cam_vsync -pg 1 -y 160 -defaultsOSRD
-preplace port led3 -pg 1 -y 60 -defaultsOSRD
-preplace port i2c0 -pg 1 -y 140 -defaultsOSRD
-preplace port pwm4 -pg 1 -y 560 -defaultsOSRD
-preplace port cam_pdwn -pg 1 -y 240 -defaultsOSRD
-preplace port i2c1 -pg 1 -y 160 -defaultsOSRD
-preplace portBus cam_d -pg 1 -y 180 -defaultsOSRD
-preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -y 470 -defaultsOSRD
-preplace inst axi_vdma_0 -pg 1 -lvl 3 -y 310 -defaultsOSRD
-preplace inst blink_0 -pg 1 -lvl 1 -y 620 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 4 -y 720 -defaultsOSRD
-preplace inst axiPassThrough_0 -pg 1 -lvl 2 -y 280 -defaultsOSRD
-preplace inst receiver -pg 1 -lvl 3 -y 760 -defaultsOSRD
-preplace inst dshot -pg 1 -lvl 5 -y 530 -defaultsOSRD
-preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -y 600 -defaultsOSRD
-preplace inst sensor_interface_v1_0_0 -pg 1 -lvl 5 -y 690 -defaultsOSRD
-preplace inst camera -pg 1 -lvl 4 -y 190 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 5 -y 150 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 5 1 NJ
-preplace netloc ps7_0_axi_periph_M02_AXI 1 2 3 710 490 NJ 490 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 390 200 NJ 200 1100J 330 NJ 330 1930
-preplace netloc dshot_bit_stream1 1 5 1 NJ
-preplace netloc axi_smc_M00_AXI 1 4 1 N
-preplace netloc dshot_bit_stream2 1 5 1 NJ
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 30 370 NJ 370 710J 440 1140 520 1450 340 1920
-preplace netloc constant_0_0_zero 1 4 2 1420J 290 1940J
-preplace netloc processing_system7_0_IIC_0 1 5 1 NJ
-preplace netloc ps7_0_axi_periph_M03_AXI 1 2 1 710
-preplace netloc dshot_bit_stream3 1 5 1 NJ
-preplace netloc dshot_bit_stream 1 5 1 NJ
-preplace netloc processing_system7_0_IIC_1 1 5 1 NJ
-preplace netloc ps7_0_axi_periph_M01_AXI 1 2 2 690 100 NJ
-preplace netloc axi_vdma_0_s2mm_frame_ptr_out 1 3 1 1150
-preplace netloc cam_d_1 1 0 4 NJ 180 NJ 180 NJ 180 1090J
-preplace netloc cam_href_1 1 0 4 NJ 200 370J 190 NJ 190 1110J
-preplace netloc rst_ps7_0_50M_interconnect_aresetn 1 1 1 390
-preplace netloc sensor_interface_v1_0_0_i2c 1 5 1 NJ
-preplace netloc axiPassThrough_0_s_axis_video 1 2 1 N
-preplace netloc xlconstant_0_dout 1 4 1 1410J
-preplace netloc cam_pclk_1 1 0 4 NJ 140 NJ 140 NJ 140 NJ
+preplace port cam_trigger -pg 1 -y 1240 -defaultsOSRD
+preplace port DDR -pg 1 -y 640 -defaultsOSRD
+preplace port cam_pclk -pg 1 -y 1340 -defaultsOSRD
+preplace port i2c_mpu -pg 1 -y 1350 -defaultsOSRD
+preplace port cam_rst -pg 1 -y 1220 -defaultsOSRD
+preplace port cam_href -pg 1 -y 1300 -defaultsOSRD
+preplace port cam_xclk -pg 1 -y 1280 -defaultsOSRD
+preplace port led1 -pg 1 -y 460 -defaultsOSRD
+preplace port pwm1 -pg 1 -y 890 -defaultsOSRD
+preplace port receiver -pg 1 -y 1080 -defaultsOSRD
+preplace port led2 -pg 1 -y 100 -defaultsOSRD
+preplace port pwm2 -pg 1 -y 910 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 660 -defaultsOSRD
+preplace port led3 -pg 1 -y 280 -defaultsOSRD
+preplace port pwm3 -pg 1 -y 930 -defaultsOSRD
+preplace port cam_vsync -pg 1 -y 1360 -defaultsOSRD
+preplace port i2c0 -pg 1 -y 680 -defaultsOSRD
+preplace port pwm4 -pg 1 -y 950 -defaultsOSRD
+preplace port cam_pdwn -pg 1 -y 1260 -defaultsOSRD
+preplace port i2c1 -pg 1 -y 700 -defaultsOSRD
+preplace portBus cam_d -pg 1 -y 1320 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -y 1190 -defaultsOSRD
+preplace inst axi_vdma_0 -pg 1 -lvl 3 -y 1190 -defaultsOSRD
+preplace inst pwm_axi_0 -pg 1 -lvl 3 -y 480 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 4 -y 1440 -defaultsOSRD
+preplace inst axiPassThrough_0 -pg 1 -lvl 2 -y 1170 -defaultsOSRD
+preplace inst pwm_axi_1 -pg 1 -lvl 3 -y 200 -defaultsOSRD
+preplace inst pwm_axi_2 -pg 1 -lvl 3 -y 340 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 4 -y 400 -defaultsOSRD
+preplace inst receiver -pg 1 -lvl 3 -y 990 -defaultsOSRD
+preplace inst dshot -pg 1 -lvl 5 -y 920 -defaultsOSRD
+preplace inst pwm_0 -pg 1 -lvl 5 -y 460 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -y 820 -defaultsOSRD
+preplace inst sensor_interface_v1_0_0 -pg 1 -lvl 5 -y 1360 -defaultsOSRD
+preplace inst pwm_1 -pg 1 -lvl 5 -y 100 -defaultsOSRD
+preplace inst pwm_2 -pg 1 -lvl 5 -y 280 -defaultsOSRD
+preplace inst camera -pg 1 -lvl 4 -y 1230 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 5 -y 690 -defaultsOSRD
+preplace netloc constant_1_0_one 1 4 2 NJ 1220 NJ
+preplace netloc pwm_axi_1_i_period 1 3 2 1160 120 NJ
+preplace netloc cam_d_1 1 0 4 20J 1330 NJ 1330 NJ 1330 1190J
+preplace netloc util_vector_logic_0_Res 1 4 1 1560
 preplace netloc processing_system7_0_FIXED_IO 1 5 1 NJ
-preplace netloc clk_wiz_0_clk_out1 1 4 2 1410J 300 NJ
-preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 4 380 380 730 430 1130 510 1420
-preplace netloc cam_vsync_1 1 0 4 NJ 160 NJ 160 NJ 160 NJ
-preplace netloc ps7_0_axi_periph_M05_AXI 1 2 3 NJ 650 NJ 650 1430
-preplace netloc ps7_0_axi_periph_M04_AXI 1 2 3 690 660 NJ 660 NJ
-preplace netloc camera_pwm_out 1 4 2 1450J 280 1950J
-preplace netloc receiver_1 1 0 3 NJ 820 NJ 820 740J
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 20 360 370 360 720 420 1120 500 1440 310 1910
-preplace netloc constant_1_0_one 1 4 2 1420J 20 NJ
-preplace netloc axi_vdma_0_M_AXI_S2MM 1 3 1 1080
-preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 700
-preplace netloc camera_video_out 1 1 4 380 40 NJ 40 NJ 40 1410
-levelinfo -pg 1 0 200 540 910 1280 1680 1970 -top 0 -bot 850
+preplace netloc axi_vdma_0_M_AXI_S2MM 1 3 1 1170
+preplace netloc axi_smc_M00_AXI 1 4 1 1510
+preplace netloc pwm_0_pwm_out 1 5 1 NJ
+preplace netloc ps7_0_axi_periph_M02_AXI 1 2 3 760 890 NJ 890 NJ
+preplace netloc ps7_0_axi_periph_M04_AXI 1 2 3 NJ 830 NJ 830 1530
+preplace netloc ps7_0_axi_periph_M03_AXI 1 2 1 740
+preplace netloc processing_system7_0_DDR 1 5 1 NJ
+preplace netloc pwm_0_output 1 4 2 NJ 1240 NJ
+preplace netloc pwm_axi_0_i_enable 1 3 2 N 460 NJ
+preplace netloc cam_href_1 1 0 4 30J 1320 NJ 1320 NJ 1320 1140J
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 750
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 4 400 1260 780 1360 1200 1380 1550
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 40 1310 NJ 1310 NJ 1310 1160 900 1560 830 2040
+preplace netloc pwm_axi_0_i_dutyCycle 1 3 2 N 500 NJ
+preplace netloc constant_0_0_zero 1 4 2 NJ 1260 NJ
+preplace netloc pwm_axi_2_i_dutyCycle 1 3 2 1170 320 NJ
+preplace netloc pwm_axi_2_i_period 1 3 2 1160 300 NJ
+preplace netloc ps7_0_axi_periph_M01_AXI 1 2 2 NJ 770 1170
+preplace netloc axiPassThrough_0_s_axis_video 1 2 1 790
+preplace netloc ps7_0_axi_periph_M07_AXI 1 2 1 730
+preplace netloc pwm_2_pwm_out 1 5 1 NJ
+preplace netloc processing_system7_0_IIC_0 1 5 1 NJ
+preplace netloc pwm_axi_1_i_enable 1 3 2 1130 100 NJ
+preplace netloc processing_system7_0_IIC_1 1 5 1 NJ
+preplace netloc camera_video_out 1 1 4 410 1090 790J 1080 NJ 1080 1500
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 40 1090 390 1250 770 1300 1130 1370 1520 820 2050
+preplace netloc pwm_axi_1_i_dutyCycle 1 3 2 1170 140 NJ
+preplace netloc pwm_axi_0_i_period 1 3 2 N 480 NJ
+preplace netloc ps7_0_axi_periph_M06_AXI 1 2 1 710
+preplace netloc ps7_0_axi_periph_M05_AXI 1 2 1 720
+preplace netloc sensor_interface_v1_0_0_i2c 1 5 1 NJ
+preplace netloc pwm_1_pwm_out 1 5 1 NJ
+preplace netloc rst_ps7_0_50M_interconnect_aresetn 1 1 1 380
+preplace netloc pwm_axi_2_i_enable 1 3 2 1130 280 NJ
+preplace netloc clk_wiz_0_clk_out1 1 4 2 1540J 1270 2040J
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 380 560 NJ 560 NJ 560 NJ 560 2050
+preplace netloc xlconstant_0_dout 1 4 1 1560J
+preplace netloc receiver_1 1 0 3 NJ 1080 NJ 1080 760J
+preplace netloc cam_vsync_1 1 0 4 NJ 1360 NJ 1360 730J 1350 1180J
+preplace netloc cam_pclk_1 1 0 4 NJ 1340 NJ 1340 NJ 1340 1170J
+preplace netloc dshot_bit_stream1 1 5 1 NJ
+preplace netloc dshot_bit_stream 1 5 1 NJ
+preplace netloc dshot_bit_stream2 1 5 1 NJ
+preplace netloc axi_vdma_0_s2mm_frame_ptr_out 1 3 1 1150
+preplace netloc dshot_bit_stream3 1 5 1 NJ
+levelinfo -pg 1 0 210 560 960 1350 1810 2070 -top 0 -bot 2000
 ",
 }
 {
-   da_axi4_cnt: "1",
-   da_clkrst_cnt: "5",
+   da_axi4_cnt: "4",
+   da_clkrst_cnt: "7",
 }

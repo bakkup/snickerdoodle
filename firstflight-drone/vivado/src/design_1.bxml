@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="36">
   <CompositeFile CompositeFileTopName="design_1" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1555871216"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1555871216"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1555871216"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1555871216"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1556123599"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1556123599"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1556123599"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1556123599"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\design_1_axiPassThrough_0_0\design_1_axiPassThrough_0_0.xci" Type="IP">
         <Instance HierarchyPath="axiPassThrough_0"/>
@@ -17,14 +17,6 @@
       </File>
       <File Name="ip\design_1_sensor_interface_v1_0_0_0\design_1_sensor_interface_v1_0_0_0.xci" Type="IP">
         <Instance HierarchyPath="sensor_interface_v1_0_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip\design_1_blink_0_0\design_1_blink_0_0.xci" Type="IP">
-        <Instance HierarchyPath="blink_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -127,6 +119,46 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
+      <File Name="ip\design_1_esc_axi_0_0\design_1_esc_axi_0_0.xci" Type="IP">
+        <Instance HierarchyPath="dshot/esc_axi_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_dshot_bb_0_0\design_1_dshot_bb_0_0.xci" Type="IP">
+        <Instance HierarchyPath="dshot/dshot_bb_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_dshot_bb_1_0\design_1_dshot_bb_1_0.xci" Type="IP">
+        <Instance HierarchyPath="dshot/dshot_bb_1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_dshot_bb_2_0\design_1_dshot_bb_2_0.xci" Type="IP">
+        <Instance HierarchyPath="dshot/dshot_bb_2"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_dshot_bb_3_0\design_1_dshot_bb_3_0.xci" Type="IP">
+        <Instance HierarchyPath="dshot/dshot_bb_3"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
       <File Name="ip\design_1_cam_axi_0_0\design_1_cam_axi_0_0.xci" Type="IP">
         <Instance HierarchyPath="camera/cam_axi_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
@@ -145,6 +177,14 @@
       </File>
       <File Name="ip\design_1_constant_1_0_0\design_1_constant_1_0_0.xci" Type="IP">
         <Instance HierarchyPath="camera/constant_1_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_pwm_0_0\design_1_pwm_0_0.xci" Type="IP">
+        <Instance HierarchyPath="camera/pwm_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -249,8 +289,56 @@
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip\design_1_pwm_module_0_1\design_1_pwm_module_0_1.xci" Type="IP">
-        <Instance HierarchyPath="camera/pwm_module_0"/>
+      <File Name="ip\design_1_pwm_axi_0_5\design_1_pwm_axi_0_5.xci" Type="IP">
+        <Instance HierarchyPath="pwm_axi_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_pwm_axi_1_0\design_1_pwm_axi_1_0.xci" Type="IP">
+        <Instance HierarchyPath="pwm_axi_1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_pwm_axi_2_0\design_1_pwm_axi_2_0.xci" Type="IP">
+        <Instance HierarchyPath="pwm_axi_2"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_pwm_0_1\design_1_pwm_0_1.xci" Type="IP">
+        <Instance HierarchyPath="pwm_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_pwm_0_2\design_1_pwm_0_2.xci" Type="IP">
+        <Instance HierarchyPath="pwm_1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_pwm_0_3\design_1_pwm_0_3.xci" Type="IP">
+        <Instance HierarchyPath="pwm_2"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_util_vector_logic_0_3\design_1_util_vector_logic_0_3.xci" Type="IP">
+        <Instance HierarchyPath="util_vector_logic_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -259,46 +347,6 @@
       </File>
       <File Name="ip\design_1_auto_pc_0\design_1_auto_pc_0.xci" Type="IP">
         <Instance HierarchyPath="ps7_0_axi_periph/s00_couplers/auto_pc"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip\design_1_pwm_axi_0_0\design_1_pwm_axi_0_0.xci" Type="IP">
-        <Instance HierarchyPath="dshot/pwm_axi_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip\design_1_pwm_module_0_0\design_1_pwm_module_0_0.xci" Type="IP">
-        <Instance HierarchyPath="dshot/pwm_module_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip\design_1_pwm_module_0_2\design_1_pwm_module_0_2.xci" Type="IP">
-        <Instance HierarchyPath="dshot/pwm_module_1"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip\design_1_pwm_module_0_3\design_1_pwm_module_0_3.xci" Type="IP">
-        <Instance HierarchyPath="dshot/pwm_module_2"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip\design_1_pwm_module_0_4\design_1_pwm_module_0_4.xci" Type="IP">
-        <Instance HierarchyPath="dshot/pwm_module_3"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

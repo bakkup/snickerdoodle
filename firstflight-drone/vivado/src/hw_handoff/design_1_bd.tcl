@@ -391,7 +391,6 @@ proc create_hier_cell_dshot { parentCell nameHier } {
 
   # Create interface pins
   create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S00_AXI
-  create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S00_AXI1
 
   # Create pins
   create_bd_pin -dir I -from 0 -to 0 Op1
@@ -402,20 +401,20 @@ proc create_hier_cell_dshot { parentCell nameHier } {
   create_bd_pin -dir I -type clk s00_axi_aclk
   create_bd_pin -dir I -type rst s00_axi_aresetn
 
-  # Create instance: pwm_axi_0, and set properties
-  set pwm_axi_0 [ create_bd_cell -type ip -vlnv rit.edu:user:pwm_axi:1.0 pwm_axi_0 ]
+  # Create instance: dshot_bb_0, and set properties
+  set dshot_bb_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:dshot_bb:1.0 dshot_bb_0 ]
 
-  # Create instance: pwm_module_0, and set properties
-  set pwm_module_0 [ create_bd_cell -type ip -vlnv rit.edu:user:pwm_module:1.0 pwm_module_0 ]
+  # Create instance: dshot_bb_1, and set properties
+  set dshot_bb_1 [ create_bd_cell -type ip -vlnv xilinx.com:user:dshot_bb:1.0 dshot_bb_1 ]
 
-  # Create instance: pwm_module_1, and set properties
-  set pwm_module_1 [ create_bd_cell -type ip -vlnv rit.edu:user:pwm_module:1.0 pwm_module_1 ]
+  # Create instance: dshot_bb_2, and set properties
+  set dshot_bb_2 [ create_bd_cell -type ip -vlnv xilinx.com:user:dshot_bb:1.0 dshot_bb_2 ]
 
-  # Create instance: pwm_module_2, and set properties
-  set pwm_module_2 [ create_bd_cell -type ip -vlnv rit.edu:user:pwm_module:1.0 pwm_module_2 ]
+  # Create instance: dshot_bb_3, and set properties
+  set dshot_bb_3 [ create_bd_cell -type ip -vlnv xilinx.com:user:dshot_bb:1.0 dshot_bb_3 ]
 
-  # Create instance: pwm_module_3, and set properties
-  set pwm_module_3 [ create_bd_cell -type ip -vlnv rit.edu:user:pwm_module:1.0 pwm_module_3 ]
+  # Create instance: esc_axi_0, and set properties
+  set esc_axi_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:esc_axi:1.0 esc_axi_0 ]
 
   # Create instance: util_vector_logic_0, and set properties
   set util_vector_logic_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0 ]
@@ -425,20 +424,22 @@ proc create_hier_cell_dshot { parentCell nameHier } {
  ] $util_vector_logic_0
 
   # Create interface connections
-  connect_bd_intf_net -intf_net Conn1 [get_bd_intf_pins S00_AXI1] [get_bd_intf_pins pwm_axi_0/S00_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins S00_AXI] [get_bd_intf_pins esc_axi_0/S00_AXI]
 
   # Create port connections
   connect_bd_net -net Op1_1 [get_bd_pins Op1] [get_bd_pins util_vector_logic_0/Op1]
-  connect_bd_net -net pwm_axi_0_i_dutyCycle [get_bd_pins pwm_axi_0/i_dutyCycle] [get_bd_pins pwm_module_0/i_dutyCycle] [get_bd_pins pwm_module_1/i_dutyCycle] [get_bd_pins pwm_module_2/i_dutyCycle] [get_bd_pins pwm_module_3/i_dutyCycle]
-  connect_bd_net -net pwm_axi_0_i_enable [get_bd_pins pwm_axi_0/i_enable] [get_bd_pins pwm_module_0/i_enable] [get_bd_pins pwm_module_1/i_enable] [get_bd_pins pwm_module_2/i_enable] [get_bd_pins pwm_module_3/i_enable]
-  connect_bd_net -net pwm_axi_0_i_period [get_bd_pins pwm_axi_0/i_period] [get_bd_pins pwm_module_0/i_period] [get_bd_pins pwm_module_1/i_period] [get_bd_pins pwm_module_2/i_period] [get_bd_pins pwm_module_3/i_period]
-  connect_bd_net -net pwm_module_0_o_pwm [get_bd_pins bit_stream] [get_bd_pins pwm_module_0/o_pwm]
-  connect_bd_net -net pwm_module_1_o_pwm [get_bd_pins bit_stream1] [get_bd_pins pwm_module_1/o_pwm]
-  connect_bd_net -net pwm_module_2_o_pwm [get_bd_pins bit_stream3] [get_bd_pins pwm_module_2/o_pwm]
-  connect_bd_net -net pwm_module_3_o_pwm [get_bd_pins bit_stream2] [get_bd_pins pwm_module_3/o_pwm]
-  connect_bd_net -net s00_axi_aclk_1 [get_bd_pins s00_axi_aclk] [get_bd_pins pwm_axi_0/s00_axi_aclk] [get_bd_pins pwm_module_0/i_clk] [get_bd_pins pwm_module_1/i_clk] [get_bd_pins pwm_module_2/i_clk] [get_bd_pins pwm_module_3/i_clk]
-  connect_bd_net -net s00_axi_aresetn_1 [get_bd_pins s00_axi_aresetn] [get_bd_pins pwm_axi_0/s00_axi_aresetn]
-  connect_bd_net -net util_vector_logic_0_Res [get_bd_pins pwm_module_0/i_reset] [get_bd_pins pwm_module_1/i_reset] [get_bd_pins pwm_module_2/i_reset] [get_bd_pins pwm_module_3/i_reset] [get_bd_pins util_vector_logic_0/Res]
+  connect_bd_net -net dshot_bb_0_bit_stream [get_bd_pins bit_stream] [get_bd_pins dshot_bb_0/bit_stream]
+  connect_bd_net -net dshot_bb_1_bit_stream [get_bd_pins bit_stream1] [get_bd_pins dshot_bb_1/bit_stream]
+  connect_bd_net -net dshot_bb_2_bit_stream [get_bd_pins bit_stream2] [get_bd_pins dshot_bb_2/bit_stream]
+  connect_bd_net -net dshot_bb_3_bit_stream [get_bd_pins bit_stream3] [get_bd_pins dshot_bb_3/bit_stream]
+  connect_bd_net -net esc_axi_0_enable [get_bd_pins dshot_bb_0/enable] [get_bd_pins dshot_bb_1/enable] [get_bd_pins dshot_bb_2/enable] [get_bd_pins dshot_bb_3/enable] [get_bd_pins esc_axi_0/enable]
+  connect_bd_net -net esc_axi_0_pwm1 [get_bd_pins dshot_bb_0/throttle] [get_bd_pins esc_axi_0/pwm1]
+  connect_bd_net -net esc_axi_0_pwm2 [get_bd_pins dshot_bb_1/throttle] [get_bd_pins esc_axi_0/pwm2]
+  connect_bd_net -net esc_axi_0_pwm3 [get_bd_pins dshot_bb_2/throttle] [get_bd_pins esc_axi_0/pwm3]
+  connect_bd_net -net esc_axi_0_pwm4 [get_bd_pins dshot_bb_3/throttle] [get_bd_pins esc_axi_0/pwm4]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins s00_axi_aclk] [get_bd_pins dshot_bb_0/clk] [get_bd_pins dshot_bb_1/clk] [get_bd_pins dshot_bb_2/clk] [get_bd_pins dshot_bb_3/clk] [get_bd_pins esc_axi_0/s00_axi_aclk]
+  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins s00_axi_aresetn] [get_bd_pins esc_axi_0/s00_axi_aresetn]
+  connect_bd_net -net util_vector_logic_0_Res [get_bd_pins dshot_bb_0/reset] [get_bd_pins dshot_bb_1/reset] [get_bd_pins dshot_bb_2/reset] [get_bd_pins dshot_bb_3/reset] [get_bd_pins util_vector_logic_0/Res]
 
   # Restore current instance
   current_bd_instance $oldCurInst
@@ -539,8 +540,8 @@ proc create_hier_cell_camera { parentCell nameHier } {
   # Create instance: line_buffers
   create_hier_cell_line_buffers $hier_obj line_buffers
 
-  # Create instance: pwm_module_0, and set properties
-  set pwm_module_0 [ create_bd_cell -type ip -vlnv rit.edu:user:pwm_module:1.0 pwm_module_0 ]
+  # Create instance: pwm_0, and set properties
+  set pwm_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:pwm:1.0 pwm_0 ]
 
   # Create instance: util_vector_logic_0, and set properties
   set util_vector_logic_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0 ]
@@ -584,9 +585,9 @@ proc create_hier_cell_camera { parentCell nameHier } {
   connect_bd_net -net buffer_to_matrix_bb_0_r [get_bd_pins buffer_to_matrix_bb_0/r] [get_bd_pins xlconcat_0/In2]
   connect_bd_net -net buffer_to_matrix_bb_0_vsync_out [get_bd_pins buffer_to_matrix_bb_0/vsync_out] [get_bd_pins v_vid_in_axi4s_0/vid_vsync]
   connect_bd_net -net buffer_to_matrix_bb_0_x_address [get_bd_pins buffer_to_matrix_bb_0/x_address] [get_bd_pins line_buffers/addrb1]
-  connect_bd_net -net cam_axi_0_duty [get_bd_pins cam_axi_0/duty] [get_bd_pins pwm_module_0/i_dutyCycle]
-  connect_bd_net -net cam_axi_0_enable [get_bd_pins cam_axi_0/enable] [get_bd_pins pwm_module_0/i_enable]
-  connect_bd_net -net cam_axi_0_period [get_bd_pins cam_axi_0/period] [get_bd_pins pwm_module_0/i_period]
+  connect_bd_net -net cam_axi_0_duty [get_bd_pins cam_axi_0/duty] [get_bd_pins pwm_0/duty]
+  connect_bd_net -net cam_axi_0_enable [get_bd_pins cam_axi_0/enable] [get_bd_pins pwm_0/enable]
+  connect_bd_net -net cam_axi_0_period [get_bd_pins cam_axi_0/period] [get_bd_pins pwm_0/period]
   connect_bd_net -net cam_href_1 [get_bd_pins async_in2] [get_bd_pins dvp_to_buffer_bb_0/href]
   connect_bd_net -net cam_pclk_1 [get_bd_pins clkb] [get_bd_pins buffer_to_matrix_bb_0/pclk] [get_bd_pins dvp_to_buffer_bb_0/pclk] [get_bd_pins line_buffers/clkb] [get_bd_pins v_vid_in_axi4s_0/vid_io_in_clk]
   connect_bd_net -net cam_vsync_1 [get_bd_pins async_in] [get_bd_pins buffer_to_matrix_bb_0/vsync_in] [get_bd_pins dvp_to_buffer_bb_0/vsync]
@@ -603,11 +604,11 @@ proc create_hier_cell_camera { parentCell nameHier } {
   connect_bd_net -net line_buffers_doutb1 [get_bd_pins buffer_to_matrix_bb_0/din1] [get_bd_pins line_buffers/doutb1]
   connect_bd_net -net line_buffers_doutb2 [get_bd_pins buffer_to_matrix_bb_0/din2] [get_bd_pins line_buffers/doutb2]
   connect_bd_net -net line_buffers_doutb3 [get_bd_pins buffer_to_matrix_bb_0/din3] [get_bd_pins line_buffers/doutb3]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins s00_axi_aclk] [get_bd_pins axi_smc/aclk] [get_bd_pins cam_axi_0/s00_axi_aclk] [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins pwm_module_0/i_clk] [get_bd_pins v_vid_in_axi4s_0/aclk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins s00_axi_aclk] [get_bd_pins axi_smc/aclk] [get_bd_pins cam_axi_0/s00_axi_aclk] [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins pwm_0/clk] [get_bd_pins v_vid_in_axi4s_0/aclk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins Op1] [get_bd_pins clk_wiz_0/resetn] [get_bd_pins util_vector_logic_0/Op1] [get_bd_pins v_vid_in_axi4s_0/aresetn]
-  connect_bd_net -net pwm_module_0_o_pwm [get_bd_pins pwm_out] [get_bd_pins pwm_module_0/o_pwm]
+  connect_bd_net -net pwm_0_output [get_bd_pins pwm_out] [get_bd_pins pwm_0/pwm_out]
   connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins s00_axi_aresetn] [get_bd_pins axi_smc/aresetn] [get_bd_pins cam_axi_0/s00_axi_aresetn]
-  connect_bd_net -net util_vector_logic_0_Res [get_bd_pins buffer_to_matrix_bb_0/reset] [get_bd_pins dvp_to_buffer_bb_0/reset] [get_bd_pins pwm_module_0/i_reset] [get_bd_pins util_vector_logic_0/Res] [get_bd_pins v_vid_in_axi4s_0/vid_io_in_reset]
+  connect_bd_net -net util_vector_logic_0_Res [get_bd_pins buffer_to_matrix_bb_0/reset] [get_bd_pins dvp_to_buffer_bb_0/reset] [get_bd_pins pwm_0/reset] [get_bd_pins util_vector_logic_0/Res] [get_bd_pins v_vid_in_axi4s_0/vid_io_in_reset]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins v_vid_in_axi4s_0/vid_data] [get_bd_pins xlconcat_0/dout]
 
   # Restore current instance
@@ -684,12 +685,6 @@ proc create_root_design { parentCell } {
    CONFIG.c_s2mm_max_burst_length {64} \
    CONFIG.c_use_s2mm_fsync {2} \
  ] $axi_vdma_0
-
-  # Create instance: blink_0, and set properties
-  set blink_0 [ create_bd_cell -type ip -vlnv craftdrones:user:blink:1.0 blink_0 ]
-  set_property -dict [ list \
-   CONFIG.max_count {2500000} \
- ] $blink_0
 
   # Create instance: camera
   create_hier_cell_camera [current_bd_instance .] camera
@@ -1426,9 +1421,27 @@ proc create_root_design { parentCell } {
   # Create instance: ps7_0_axi_periph, and set properties
   set ps7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph ]
   set_property -dict [ list \
-   CONFIG.NUM_MI {6} \
+   CONFIG.NUM_MI {8} \
    CONFIG.SYNCHRONIZATION_STAGES {2} \
  ] $ps7_0_axi_periph
+
+  # Create instance: pwm_0, and set properties
+  set pwm_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:pwm:1.0 pwm_0 ]
+
+  # Create instance: pwm_1, and set properties
+  set pwm_1 [ create_bd_cell -type ip -vlnv xilinx.com:user:pwm:1.0 pwm_1 ]
+
+  # Create instance: pwm_2, and set properties
+  set pwm_2 [ create_bd_cell -type ip -vlnv xilinx.com:user:pwm:1.0 pwm_2 ]
+
+  # Create instance: pwm_axi_0, and set properties
+  set pwm_axi_0 [ create_bd_cell -type ip -vlnv rit.edu:user:pwm_axi:1.0 pwm_axi_0 ]
+
+  # Create instance: pwm_axi_1, and set properties
+  set pwm_axi_1 [ create_bd_cell -type ip -vlnv rit.edu:user:pwm_axi:1.0 pwm_axi_1 ]
+
+  # Create instance: pwm_axi_2, and set properties
+  set pwm_axi_2 [ create_bd_cell -type ip -vlnv rit.edu:user:pwm_axi:1.0 pwm_axi_2 ]
 
   # Create instance: receiver
   create_hier_cell_receiver [current_bd_instance .] receiver
@@ -1438,6 +1451,13 @@ proc create_root_design { parentCell } {
 
   # Create instance: sensor_interface_v1_0_0, and set properties
   set sensor_interface_v1_0_0 [ create_bd_cell -type ip -vlnv craftdrones:user:sensor_interface_v1_0:1.1 sensor_interface_v1_0_0 ]
+
+  # Create instance: util_vector_logic_0, and set properties
+  set util_vector_logic_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0 ]
+  set_property -dict [ list \
+   CONFIG.C_OPERATION {not} \
+   CONFIG.LOGO_FILE {data/sym_notgate.png} \
+ ] $util_vector_logic_0
 
   # Create instance: xlconstant_0, and set properties
   set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
@@ -1457,7 +1477,9 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M02_AXI [get_bd_intf_pins dshot/S00_AXI] [get_bd_intf_pins ps7_0_axi_periph/M02_AXI]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M03_AXI [get_bd_intf_pins ps7_0_axi_periph/M03_AXI] [get_bd_intf_pins receiver/S00_AXI1]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M04_AXI [get_bd_intf_pins ps7_0_axi_periph/M04_AXI] [get_bd_intf_pins sensor_interface_v1_0_0/s00_axi]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M05_AXI [get_bd_intf_pins dshot/S00_AXI1] [get_bd_intf_pins ps7_0_axi_periph/M05_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M05_AXI [get_bd_intf_pins ps7_0_axi_periph/M05_AXI] [get_bd_intf_pins pwm_axi_0/S00_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M06_AXI [get_bd_intf_pins ps7_0_axi_periph/M06_AXI] [get_bd_intf_pins pwm_axi_1/S00_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M07_AXI [get_bd_intf_pins ps7_0_axi_periph/M07_AXI] [get_bd_intf_pins pwm_axi_2/S00_AXI]
   connect_bd_intf_net -intf_net sensor_interface_v1_0_0_i2c [get_bd_intf_ports i2c_mpu] [get_bd_intf_pins sensor_interface_v1_0_0/i2c]
 
   # Create port connections
@@ -1466,7 +1488,6 @@ proc create_root_design { parentCell } {
   connect_bd_net -net cam_href_1 [get_bd_ports cam_href] [get_bd_pins camera/async_in2]
   connect_bd_net -net cam_pclk_1 [get_bd_ports cam_pclk] [get_bd_pins camera/clkb]
   connect_bd_net -net cam_vsync_1 [get_bd_ports cam_vsync] [get_bd_pins camera/async_in]
-  connect_bd_net -net camera_pwm_out [get_bd_ports cam_trigger] [get_bd_ports led1] [get_bd_pins camera/pwm_out]
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_ports cam_xclk] [get_bd_pins camera/clk_out1]
   connect_bd_net -net constant_0_0_zero [get_bd_ports cam_pdwn] [get_bd_pins camera/zero]
   connect_bd_net -net constant_1_0_one [get_bd_ports cam_rst] [get_bd_pins camera/axis_enable]
@@ -1474,18 +1495,35 @@ proc create_root_design { parentCell } {
   connect_bd_net -net dshot_bit_stream1 [get_bd_ports pwm2] [get_bd_pins dshot/bit_stream1]
   connect_bd_net -net dshot_bit_stream2 [get_bd_ports pwm3] [get_bd_pins dshot/bit_stream2]
   connect_bd_net -net dshot_bit_stream3 [get_bd_ports pwm4] [get_bd_pins dshot/bit_stream3]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axiPassThrough_0/aclk] [get_bd_pins axi_vdma_0/m_axi_s2mm_aclk] [get_bd_pins axi_vdma_0/s_axi_lite_aclk] [get_bd_pins axi_vdma_0/s_axis_s2mm_aclk] [get_bd_pins blink_0/clk] [get_bd_pins camera/s00_axi_aclk] [get_bd_pins dshot/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins receiver/clk] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk] [get_bd_pins sensor_interface_v1_0_0/s00_axi_aclk]
-  connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins blink_0/reset_n] [get_bd_pins camera/Op1] [get_bd_pins dshot/Op1] [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_50M/ext_reset_in]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axiPassThrough_0/aclk] [get_bd_pins axi_vdma_0/m_axi_s2mm_aclk] [get_bd_pins axi_vdma_0/s_axi_lite_aclk] [get_bd_pins axi_vdma_0/s_axis_s2mm_aclk] [get_bd_pins camera/s00_axi_aclk] [get_bd_pins dshot/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins ps7_0_axi_periph/M06_ACLK] [get_bd_pins ps7_0_axi_periph/M07_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins pwm_0/clk] [get_bd_pins pwm_1/clk] [get_bd_pins pwm_2/clk] [get_bd_pins pwm_axi_0/s00_axi_aclk] [get_bd_pins pwm_axi_1/s00_axi_aclk] [get_bd_pins pwm_axi_2/s00_axi_aclk] [get_bd_pins receiver/clk] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk] [get_bd_pins sensor_interface_v1_0_0/s00_axi_aclk]
+  connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins camera/Op1] [get_bd_pins dshot/Op1] [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_50M/ext_reset_in] [get_bd_pins util_vector_logic_0/Op1]
+  connect_bd_net -net pwm_0_output [get_bd_ports cam_trigger] [get_bd_pins camera/pwm_out]
+  connect_bd_net -net pwm_0_pwm_out [get_bd_ports led1] [get_bd_pins pwm_0/pwm_out]
+  connect_bd_net -net pwm_1_pwm_out [get_bd_ports led2] [get_bd_pins pwm_1/pwm_out]
+  connect_bd_net -net pwm_2_pwm_out [get_bd_ports led3] [get_bd_pins pwm_2/pwm_out]
+  connect_bd_net -net pwm_axi_0_i_dutyCycle [get_bd_pins pwm_0/duty] [get_bd_pins pwm_axi_0/i_dutyCycle]
+  connect_bd_net -net pwm_axi_0_i_enable [get_bd_pins pwm_0/enable] [get_bd_pins pwm_axi_0/i_enable]
+  connect_bd_net -net pwm_axi_0_i_period [get_bd_pins pwm_0/period] [get_bd_pins pwm_axi_0/i_period]
+  connect_bd_net -net pwm_axi_1_i_dutyCycle [get_bd_pins pwm_1/duty] [get_bd_pins pwm_axi_1/i_dutyCycle]
+  connect_bd_net -net pwm_axi_1_i_enable [get_bd_pins pwm_1/enable] [get_bd_pins pwm_axi_1/i_enable]
+  connect_bd_net -net pwm_axi_1_i_period [get_bd_pins pwm_1/period] [get_bd_pins pwm_axi_1/i_period]
+  connect_bd_net -net pwm_axi_2_i_dutyCycle [get_bd_pins pwm_2/duty] [get_bd_pins pwm_axi_2/i_dutyCycle]
+  connect_bd_net -net pwm_axi_2_i_enable [get_bd_pins pwm_2/enable] [get_bd_pins pwm_axi_2/i_enable]
+  connect_bd_net -net pwm_axi_2_i_period [get_bd_pins pwm_2/period] [get_bd_pins pwm_axi_2/i_period]
   connect_bd_net -net receiver_1 [get_bd_ports receiver] [get_bd_pins receiver/rx]
   connect_bd_net -net rst_ps7_0_50M_interconnect_aresetn [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins rst_ps7_0_50M/interconnect_aresetn]
-  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins axiPassThrough_0/resetn] [get_bd_pins axi_vdma_0/axi_resetn] [get_bd_pins camera/s00_axi_aresetn] [get_bd_pins dshot/s00_axi_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/M05_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins receiver/Op1] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn] [get_bd_pins sensor_interface_v1_0_0/s00_axi_aresetn]
+  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins axiPassThrough_0/resetn] [get_bd_pins axi_vdma_0/axi_resetn] [get_bd_pins camera/s00_axi_aresetn] [get_bd_pins dshot/s00_axi_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/M05_ARESETN] [get_bd_pins ps7_0_axi_periph/M06_ARESETN] [get_bd_pins ps7_0_axi_periph/M07_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins pwm_axi_0/s00_axi_aresetn] [get_bd_pins pwm_axi_1/s00_axi_aresetn] [get_bd_pins pwm_axi_2/s00_axi_aresetn] [get_bd_pins receiver/Op1] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn] [get_bd_pins sensor_interface_v1_0_0/s00_axi_aresetn]
+  connect_bd_net -net util_vector_logic_0_Res [get_bd_pins pwm_0/reset] [get_bd_pins pwm_1/reset] [get_bd_pins pwm_2/reset] [get_bd_pins util_vector_logic_0/Res]
   connect_bd_net -net xlconstant_0_dout [get_bd_pins sensor_interface_v1_0_0/clk_en] [get_bd_pins xlconstant_0/dout]
 
   # Create address segments
   create_bd_addr_seg -range 0x40000000 -offset 0x00000000 [get_bd_addr_spaces axi_vdma_0/Data_S2MM] [get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM] SEG_processing_system7_0_HP0_DDR_LOWOCM
   create_bd_addr_seg -range 0x00010000 -offset 0x43000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_vdma_0/S_AXI_LITE/Reg] SEG_axi_vdma_0_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0x43C50000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs camera/cam_axi_0/S00_AXI/S00_AXI_reg] SEG_cam_axi_0_S00_AXI_reg
-  create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs dshot/pwm_axi_0/S00_AXI/S00_AXI_reg] SEG_pwm_axi_0_S00_AXI_reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs dshot/esc_axi_0/S00_AXI/S00_AXI_reg] SEG_esc_axi_0_S00_AXI_reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C30000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pwm_axi_0/S00_AXI/S00_AXI_reg] SEG_pwm_axi_0_S00_AXI_reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C40000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pwm_axi_1/S00_AXI/S00_AXI_reg] SEG_pwm_axi_1_S00_AXI_reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C60000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pwm_axi_2/S00_AXI/S00_AXI_reg] SEG_pwm_axi_2_S00_AXI_reg
   create_bd_addr_seg -range 0x00010000 -offset 0x43C20000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs sensor_interface_v1_0_0/s00_axi/reg0] SEG_sensor_interface_v1_0_0_reg0
   create_bd_addr_seg -range 0x00010000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs receiver/serial_receiver_axi_9ch_0/S00_AXI/S00_AXI_reg] SEG_serial_receiver_axi_9ch_0_S00_AXI_reg
 

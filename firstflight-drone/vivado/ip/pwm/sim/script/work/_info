@@ -1,0 +1,99 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/my3197/Downloads/CPET563-master/lab_02/ip/pwm/sim/script
+T_opt
+Z1 !s110 1555514568
+Vd44`X8d`=<=YXV9bHWZH91
+04 20 9 work pwm_module_testbench testbench 1
+=1-509a4c2798b1-5cb744c8-28f-1938
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;10.7b;67
+Epwm_module
+Z2 w1555510792
+Z3 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+R0
+Z6 8../../src/pwm_module.vhd
+Z7 F../../src/pwm_module.vhd
+l0
+L12
+V?_?=1m9iQNHa<GmKKg1CV1
+!s100 5EUmnlJ:R]0RS^0KoHi1J1
+Z8 OL;C;10.7b;67
+31
+R1
+!i10b 1
+Z9 !s108 1555514568.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|../../src/pwm_module.vhd|
+Z11 !s107 ../../src/pwm_module.vhd|
+!i113 0
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Aarch
+R3
+R4
+R5
+DEx4 work 10 pwm_module 0 22 ?_?=1m9iQNHa<GmKKg1CV1
+l32
+L24
+VRLTG:O;XncP[k:PUQICQn0
+!s100 a:fUNg8?n2JW5<ZH9JFbG2
+R8
+31
+R1
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Epwm_module_testbench
+Z14 w1555514556
+R4
+R5
+R0
+Z15 8../src/pwm_module_testbench.vhd
+Z16 F../src/pwm_module_testbench.vhd
+l0
+L11
+VPi6MjH6nAQ28QYc@4Kj0Y1
+!s100 Z;NN4XN_`S^3^UO7h=1?k2
+R8
+31
+R1
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|../src/pwm_module_testbench.vhd|
+Z18 !s107 ../src/pwm_module_testbench.vhd|
+!i113 0
+R12
+R13
+Atestbench
+R4
+R5
+DEx4 work 20 pwm_module_testbench 0 22 Pi6MjH6nAQ28QYc@4Kj0Y1
+l46
+L14
+VXM9ccOJLSkDYMF=ATmgGc3
+!s100 <N?d>c2?7NeI]nXNdX^GU2
+R8
+31
+R1
+!i10b 1
+R9
+R17
+R18
+!i113 0
+R12
+R13
